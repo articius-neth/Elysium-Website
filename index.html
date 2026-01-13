@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ElysiumNetwork — Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--bg:#050505;--muted:#9ca3af;--accent:#f59e0b}
+    body{background:radial-gradient(ellipse at top left,#071017 0%,var(--bg) 60%);color:#e6eef8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0}
+    .gold-text{background:linear-gradient(135deg,#D4AF37 0%,#f9e076 50%,#D4AF37 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03)}
+    .card-bg{background:#0b0b0c;border:1px solid #222}
+    .hide{display:none}
+    .badge{background:linear-gradient(90deg,#f97316,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  </style>
+</head>
+<body>
+  <header class="p-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="text-2xl font-extrabold gold-text">ELYSIUM NETWORK</div>
+      <div class="text-sm text-gray-400">Official Store</div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="copy-ip" class="px-3 py-2 rounded bg-zinc-800 text-xs font-semibold">IP: play.elysiumnet</button>
+      <a href="#contact" class="px-3 py-2 rounded bg-yellow-500 text-black text-xs font-semibold">Contact</a>
+    </div>
+  </header>
+
+  <main class="px-6 pb-16">
+    <section class="max-w-5xl mx-auto text-center mt-6">
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-2">Steal Hearts. Claim Glory.</h1>
+      <p class="text-gray-400 mb-6">Choose your game mode to view ranks, crates, upgrades and more.</p>
+
+      <div class="flex justify-center gap-4 mb-8">
+        <button class="mode-btn px-6 py-3 rounded-lg glass shadow-sm" data-mode="lifesteal">Lifesteal</button>
+        <button class="mode-btn px-6 py-3 rounded-lg card-bg text-gray-300" data-mode="pit">Pit</button>
+      </div>
+
+      <!-- Modes container -->
+      <div id="modes" class="space-y-8">
+        <!-- Lifesteal -->
+        <section id="lifesteal" class="mode-panel">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card-bg p-6 rounded-xl">
+              <h3 class="text-lg font-bold mb-2">Ranks</h3>
+              <p class="text-sm text-gray-400 mb-4">Buy ranks to unlock perks in Lifesteal.</p>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 rounded bg-black/20">
+                  <div>
+                    <div class="font-semibold">Disciple</div>
+                    <div class="text-xs text-gray-400">Basic starter rank</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-yellow-400">$8.99</div>
+                    <button class="buy-btn mt-2 px-3 py-1 rounded bg-yellow-500 text-black text-xs font-semibold" data-item='{"id":"dspl","name":"Disciple","type":"rank","price":8.99}'>Buy</button>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 rounded bg-black/20 border-2 border-yellow-500">
+                  <div>
+                    <div class="font-semibold">ELYSIUM</div>
+                    <div class="text-xs text-gray-400">All-in premium rank</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-yellow-400">$129.99</div>
+                    <button class="buy-btn mt-2 px-3 py-1 rounded bg-yellow-500 text-black text-xs font-semibold" data-item='{"id":"elys","name":"ELYSIUM","type":"rank","price":129.99}'>Buy</button>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 rounded bg-black/20">
+                  <div>
+                    <div class="font-semibold">Mercenary</div>
+                    <div class="text-xs text-gray-400">Intermediate rank</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-yellow-400">$24.99</div>
+                    <button class="buy-btn mt-2 px-3 py-1 rounded bg-yellow-500 text-black text-xs font-semibold" data-item='{"id":"merc","name":"Mercenary","type":"rank","price":24.99}'>Buy</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card-bg p-6 rounded-xl">
+              <h3 class="text-lg font-bold mb-2">Crates</h3>
+              <p class="text-sm text-gray-400 mb-4">Keys and crate bundles with rare drops.</p>
+              <div class="space-y-4">
+                <div class="p-3 rounded bg-black/20 flex items-center justify-between">
+                  <div>
+                    <div class="font-semibold">Winter Crate Key</div>
+                    <div class="text-xs text-gray-400">Chance for rare winter armor</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-cyan-400">$12.99</div>
+                    <button class="buy-btn mt-2 px-3 py-1 rounded bg-cyan-600 text-black text-xs font-semibold" data-item='{"id":"wk","name":"Winter Key","type":"crate","price":12.99}'>Buy</button>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded bg-black/20 flex items-center justify-between">
+                  <div>
+                    <div class="font-semibold">Crate Bundle (5)</div>
+                    <div class="text-xs text-gray-400">Save with a bundle</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-bold text-cyan-400">$59.99</div>
+                    <button class="buy-btn mt-2 px-3 py-1 rounded bg-cyan-600 text-black text-xs font-semibold" data-item='{"id":"cb5","name":"Crate Bundle (5)","type":"crate","price":59.99}'>Buy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-bg p-6 rounded-xl">
+              <h3 class="text-lg font-bold mb-2">Upgrades</h3>
+              <p class="text-sm text-gray-400 mb-4">Rank upgrades and promos.</p>
+              <div class="space-y-4 text-sm">
+                <div class="flex items-center justify-between p-3 rounded bg-black/20">
+                  <span>Disciple → Mercenary</span>
+                  <div class="text-yellow-400 font-bold">$8.00 <button class="buy-btn ml-2 px-2 py-1 rounded bg-yellow-500 text-black text-xs" data-item='{"id":"up1","name":"Disciple→Merc","type":"upgrade","price":8.00}'>Buy</button></div>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded bg-black/20">
+                  <span>King → ELYSIUM</span>
+                  <div class="text-yellow-400 font-bold">$45.00 <button class="buy-btn ml-2 px-2 py-1 rounded bg-yellow-500 text-black text-xs" data-item='{"id":"up2","name":"King→ELYS","type":"upgrade","price":45.00}'>Buy</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 text-center text-sm text-gray-400">More ranks & crates available in-game.</div>
+        </section>
+
+        <!-- Pit -->
+        <section id="pit" class="mode-panel hide">
+          <div class="max-w-3xl mx-auto">
+            <div class="card-bg p-6 rounded-xl text-center">
+              <div class="text-red-500 font-bold text-xs uppercase tracking-widest mb-2">The Elysium Pit</div>
+              <h2 class="text-2xl font-bold mb-2">Coming Soon</h2>
+              <p class="text-sm text-gray-400 mb-4">Pit purchases and ranks will be available soon. Stay tuned!</p>
+              <div class="w-full bg-zinc-900 h-3 rounded-full overflow-hidden mb-3">
+                <div class="bg-red-600 h-full" style="width:65%"></div>
+              </div>
+              <button class="px-4 py-2 rounded bg-zinc-800 text-xs">Notify me</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Cart / Checkout -->
+      <div id="cart" class="fixed right-6 bottom-6 w-80 bg-black/80 p-4 rounded-xl glass shadow-lg">
+        <div class="flex items-center justify-between mb-3">
+          <div class="font-semibold">Cart</div>
+          <div class="text-sm text-gray-400" id="cart-count">0</div>
+        </div>
+        <div id="cart-items" class="space-y-2 max-h-48 overflow-auto text-sm text-gray-200"></div>
+        <div class="mt-3 flex items-center justify-between">
+          <div class="font-bold text-yellow-400" id="cart-total">$0.00</div>
+          <button id="checkout" class="px-3 py-1 rounded bg-yellow-500 text-black text-sm font-semibold">Checkout</button>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="contact" class="max-w-4xl mx-auto mt-12 p-6 card-bg rounded-xl">
+      <h3 class="text-lg font-bold mb-2">Contact</h3>
+      <p class="text-sm text-gray-400 mb-4">Questions about purchases? Reach out and we will help.</p>
+      <form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <input type="text" name="name" placeholder="Your name" class="p-3 rounded bg-transparent border border-white/5" />
+        <input type="email" name="email" placeholder="Email" class="p-3 rounded bg-transparent border border-white/5" />
+        <textarea name="message" placeholder="Message" class="p-3 rounded bg-transparent border border-white/5 col-span-1 sm:col-span-2" rows="4"></textarea>
+        <button type="submit" class="px-4 py-2 rounded bg-yellow-500 text-black font-semibold">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="text-center p-6 text-sm text-gray-500">© ElysiumNetwork — Built for Lifesteal & The Pit</footer>
+
+  <script>
+    // Basic interactivity and a mock cart
+    const modeBtns = document.querySelectorAll('.mode-btn');
+    const modePanels = document.querySelectorAll('.mode-panel');
+    modeBtns.forEach(b=>b.addEventListener('click', ()=>{
+      const mode = b.dataset.mode;
+      modePanels.forEach(p=>p.classList.add('hide'));
+      document.getElementById(mode).classList.remove('hide');
+      // style active
+      modeBtns.forEach(x=>x.classList.remove('bg-yellow-500','text-black','glass'));
+      b.classList.add('bg-yellow-500','text-black');
+    }));
+
+    // copy ip
+    document.getElementById('copy-ip').addEventListener('click', ()=>{
+      navigator.clipboard?.writeText('play.elysiumnet').then(()=>{
+        alert('Copied IP: play.elysiumnet');
+      }).catch(()=>alert('play.elysiumnet'));
+    });
+
+    // cart
+    const cart = [];
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartCountEl = document.getElementById('cart-count');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    function renderCart(){
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach((it, idx)=>{
+        total += it.price;
+        const div = document.createElement('div');
+        div.className = 'flex items-center justify-between bg-black/20 p-2 rounded';
+        div.innerHTML = `<div><div class="font-semibold">${it.name}</div><div class="text-xs text-gray-400">${it.type}</div></div><div class=\"text-sm font-semibold text-yellow-400\">$${it.price.toFixed(2)} <button data-idx=\"${idx}\" class=\"remove-item ml-2 text-xs text-red-400\">✕</button></div>`;
+        cartItemsEl.appendChild(div);
+      });
+      cartCountEl.textContent = cart.length;
+      cartTotalEl.textContent = `$${total.toFixed(2)}`;
+      document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click', (e)=>{
+        const i = Number(e.target.dataset.idx);
+        cart.splice(i,1);
+        renderCart();
+      }));
+    }
+
+    document.querySelectorAll('.buy-btn').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const item = JSON.parse(b.getAttribute('data-item'));
+        cart.push(item);
+        renderCart();
+        // small pulse
+        b.animate([{transform:'scale(1)'},{transform:'scale(1.03)'},{transform:'scale(1)'}],{duration:220});
+      });
+    });
+
+    document.getElementById('checkout').addEventListener('click', ()=>{
+      if(cart.length===0){alert('Your cart is empty');return}
+      // In production you'd redirect to your payment provider (Buycraft, Tebex, etc.)
+      const lines = cart.map(i=>`${i.name} - $${i.price.toFixed(2)}`);
+      alert('Checkout summary:\n' + lines.join('\n') + '\n\n(This is a demo. Integrate Buycraft/Tebex or your payment link.)');
+    });
+
+    // contact form demo
+    document.getElementById('contact-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Thanks — we will get back to you.');
+      e.target.reset();
+    });
+
+    // initialize default view
+    document.querySelector('.mode-btn[data-mode="lifesteal"]').click();
+  </script>
+</body>
+</html>
